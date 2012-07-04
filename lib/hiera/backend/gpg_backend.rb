@@ -52,9 +52,11 @@ class Hiera
 	                case resolution_type
 	                when :array
 	                    debug("Appending answer array")
+                            answer ||= []
 	                    answer << parsed_answer
 	                when :hash
 	                    debug("Merging answer hash")
+                            answer ||= {}
 	                    answer = parsed_answer.merge answer
 	                else
 	                    debug("Assigning answer variable")
